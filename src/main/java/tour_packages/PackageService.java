@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package tour_packages;
 
 import java.util.List;
 
@@ -9,19 +9,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class HotelService {
+public class PackageService {
 	@Autowired
-	private HotelRepo repo;
+	private PackagesRepo repo;
 	
-	public List<Hotels> getListHotels(){
+	public List<Packages> getListPackages(){
 		return repo.findAll();
 	}	
-	public void save(Hotels hotel) {
-		repo.save(hotel);
+	public void save(Packages packages) {
+		repo.save(packages);
 	
 	}
 	
-	public Hotels getHotel(int id) {
+	public Packages getPackage(int id) {
 		return repo.findById(id).get();
 		
 		
@@ -31,7 +31,9 @@ public class HotelService {
 		repo.deleteById(id);
 	}
 		
-	}
+}
+	
+
 	
 
 

@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package customers;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,28 +6,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Users {
+public class Customers {
 	
 	private int id;
 	private String name;
 	private String email;
 	private String address;
 	
-
 	
-
-
-	public Users() {
+	
+	
+	public Customers() {
 		
 	}
 	
-	
-	public Users(Integer id, String name, String email, String address) {
-	    this.id = id;
-	    this.name = name;
-	    this.email = email;
-	    this.address= address;
-	}
+	public Customers(Integer id, String name, String email, String address) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address= address;
+    }
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +36,13 @@ public class Users {
 	}
 
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 
 
 	public String getName() {
@@ -46,9 +50,13 @@ public class Users {
 	}
 
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 
 
 	public String getEmail() {
@@ -56,9 +64,13 @@ public class Users {
 	}
 
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 
 	public String getAddress() {
@@ -66,11 +78,11 @@ public class Users {
 	}
 
 
+
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
 	
-	
-	
-	
+
 }

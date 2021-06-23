@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package hotels;
 
 import java.util.List;
 import java.util.NoSuchElementException;

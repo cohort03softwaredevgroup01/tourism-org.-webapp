@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package customers;
 
 import java.util.List;
 
@@ -7,23 +7,27 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+
+	
 @Service
 @Transactional
-public class UserService {
+public class CustomerService {
 	
 	
 		@Autowired
-		private UserRepo repo;
+		private CustomerRepo repo;
 		
-		public List<Users> getListUsers(){
+		public List<Customers> getListCustomers(){
 			return repo.findAll();
 		}	
-		public void save(Users users) {
-			repo.save(users);
+		public void save(Customers customers) {
+			repo.save(customers);
 		
 		}
 		
-		public Users getUser(int id) {
+		public Customers getCustomer(int id) {
 			return repo.findById(id).get();
 			
 			
@@ -34,3 +38,5 @@ public class UserService {
 		}
 			
 }
+		
+

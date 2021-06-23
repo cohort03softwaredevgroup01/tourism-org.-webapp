@@ -1,5 +1,4 @@
-package com.tour.webapp;
-
+package tour_packages;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -15,40 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
+public class PackageController {
 	
 	@Autowired
-	private UserService service;
+	private PackageService service;
 	
-	
-	@GetMapping("/user")
-	public List<Users> list() {
+	@GetMapping("/packages")
+	public List<Packages> list() {
 		
-		return service.getListUsers();
+		return service.getListPackages();
 	}
 	
-	@PostMapping("/users")
-	public void add(@RequestBody Users addUser) {
-	    service.save(addUser);
-	    
+	@PostMapping("/packages")
+	public void add(@RequestBody Packages addPackage) {
+	    service.save(addPackage);
 	}
 	
-	
-	@PutMapping("/user/{id}")
-	public ResponseEntity<?> update(@RequestBody Users updateUser, @PathVariable Integer id) {
+	@PutMapping("/packages/{id}")
+	public ResponseEntity<?> update(@RequestBody Packages updatePackage, @PathVariable Integer id) {
 	    try {
-	         service.getUser(id);
-	        service.save(updateUser);
+	         service.getPackage(id);
+	        service.save(updatePackage);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }      
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public void delete(@PathVariable Integer id) {
-	    service.delete(id);
+	@DeleteMapping("/packages/{id}")
+	public ResponseEntity<Object> delete(@PathVariable Integer id) {
+	    
+	    try {
+	    	service.delete(id);
+	        return new ResponseEntity<>(HttpStatus.OK);
+	    } catch (NoSuchElementException e) {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }    
 	}
-
 
 }

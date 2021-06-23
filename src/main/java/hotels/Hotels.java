@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package hotels;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

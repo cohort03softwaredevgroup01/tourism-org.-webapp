@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package tour_packages;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

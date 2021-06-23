@@ -1,4 +1,4 @@
-package com.tour.webapp;
+package hotels;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
