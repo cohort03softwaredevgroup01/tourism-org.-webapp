@@ -1,4 +1,4 @@
-package customers;
+package com.tour.webapp.services;
 
 import java.util.List;
 
@@ -6,6 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.tour.webapp.dao.CustomerRepo;
+import com.tour.webapp.model.Customers;
 
 
 

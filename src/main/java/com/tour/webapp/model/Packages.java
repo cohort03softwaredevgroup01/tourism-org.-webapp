@@ -1,4 +1,4 @@
-package tour_packages;
+package com.tour.webapp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

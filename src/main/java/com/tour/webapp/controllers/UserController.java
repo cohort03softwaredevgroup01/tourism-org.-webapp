@@ -1,4 +1,4 @@
-package users;
+package com.tour.webapp.controllers;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.tour.webapp.model.Users;
+import com.tour.webapp.services.UserService;
 
 @RestController
 public class UserController {

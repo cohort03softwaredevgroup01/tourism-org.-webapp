@@ -1,4 +1,5 @@
-package tour_packages;
+package com.tour.webapp.controllers;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -13,43 +14,39 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tour.webapp.model.Hotels;
+import com.tour.webapp.services.HotelService;
+
 @RestController
-public class PackageController {
+public class HotelController {
 	
 	@Autowired
-	private PackageService service;
+	private HotelService service;
 	
-	@GetMapping("/packages")
-	public List<Packages> list() {
+	@GetMapping("/hotels")
+	public List<Hotels> list() {
 		
-		return service.getListPackages();
+		return service.getListHotels();
 	}
 	
-	@PostMapping("/packages")
-	public void add(@RequestBody Packages addPackage) {
-	    service.save(addPackage);
+	@PostMapping("/hotels")
+	public void add(@RequestBody Hotels addHotel) {
+	    service.save(addHotel);
 	}
-	
-	@PutMapping("/packages/{id}")
-	public ResponseEntity<?> update(@RequestBody Packages updatePackage, @PathVariable Integer id) {
+	@PutMapping("/hotels/{id}")
+	public ResponseEntity<?> update(@RequestBody Hotels updateHotel, @PathVariable Integer id) {
 	    try {
-	         service.getPackage(id);
-	        service.save(updatePackage);
+	         service.getHotel(id);
+	        service.save(updateHotel);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }      
 	}
 	
-	@DeleteMapping("/packages/{id}")
-	public ResponseEntity<Object> delete(@PathVariable Integer id) {
-	    
-	    try {
-	    	service.delete(id);
-	        return new ResponseEntity<>(HttpStatus.OK);
-	    } catch (NoSuchElementException e) {
-	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	    }    
+	@DeleteMapping("/hotels/{id}")
+	public void delete(@PathVariable Integer id) {
+	    service.delete(id);
 	}
-
+	
 }

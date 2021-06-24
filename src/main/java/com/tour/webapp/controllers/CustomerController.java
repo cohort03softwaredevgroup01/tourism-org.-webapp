@@ -1,4 +1,4 @@
-package hotels;
+package com.tour.webapp.controllers;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -14,36 +14,48 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tour.webapp.model.Customers;
+import com.tour.webapp.services.CustomerService;
+
 @RestController
-public class HotelController {
+public class CustomerController {
+	
 	
 	@Autowired
-	private HotelService service;
+	private CustomerService service;
 	
-	@GetMapping("/hotels")
-	public List<Hotels> list() {
+	@GetMapping("/customer")
+	public List<Customers> list() {
 		
-		return service.getListHotels();
+		return service.getListCustomers();
 	}
 	
-	@PostMapping("/hotels")
-	public void add(@RequestBody Hotels addHotel) {
-	    service.save(addHotel);
+	@PostMapping("/customers")
+	public void add(@RequestBody Customers addCustomer) {
+	    service.save(addCustomer);
+	    
 	}
-	@PutMapping("/hotels/{id}")
-	public ResponseEntity<?> update(@RequestBody Hotels updateHotel, @PathVariable Integer id) {
+	
+	
+	@PutMapping("/customer/{id}")
+	public ResponseEntity<?> update(@RequestBody Customers updateCustomer, @PathVariable Integer id) {
 	    try {
-	         service.getHotel(id);
-	        service.save(updateHotel);
+	         service.getCustomer(id);
+	        service.save(updateCustomer);
 	        return new ResponseEntity<>(HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }      
 	}
 	
-	@DeleteMapping("/hotels/{id}")
+	@DeleteMapping("/customer/{id}")
 	public void delete(@PathVariable Integer id) {
 	    service.delete(id);
 	}
 	
+	
+	
+	
+	
+
 }

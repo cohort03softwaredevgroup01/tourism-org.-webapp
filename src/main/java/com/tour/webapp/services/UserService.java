@@ -1,4 +1,4 @@
-package users;
+package com.tour.webapp.services;
 
 import java.util.List;
 
@@ -6,6 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.tour.webapp.dao.UserRepo;
+import com.tour.webapp.model.Users;
 
 @Service
 @Transactional
